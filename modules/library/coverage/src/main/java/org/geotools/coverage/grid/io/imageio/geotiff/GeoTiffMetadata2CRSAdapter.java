@@ -1401,6 +1401,20 @@ public final class GeoTiffMetadata2CRSAdapter {
                 return parameters;
             }
 
+            /** Lambert Cylindrical Equal Area */
+            if (name.equalsIgnoreCase("Cylindrical_Equal_Area")
+                    || code == GeoTiffCoordinateTransformationsCodes.CT_CylindricalEqualArea) {
+                parameters = mtFactory.getDefaultParameters("Lambert Cylindrical Equal Area (Spherical)");
+
+                parameters.parameter("central_meridian").setValue(getOriginLong(metadata));
+                parameters.parameter("standard_parallel_1").setValue(
+                                getGeoKeyAsDouble(GeoTiffPCSCodes.ProjStdParallel1GeoKey, metadata));
+                parameters.parameter("false_easting").setValue(getFalseEasting(metadata));
+                parameters.parameter("false_northing").setValue(getFalseNorthing(metadata));
+
+                return parameters;
+            }
+
             /** Azimuthal Equidistant */
             if (name.equalsIgnoreCase("Azimuthal_Equidistant")
                     || code == GeoTiffCoordinateTransformationsCodes.CT_AzimuthalEquidistant) {

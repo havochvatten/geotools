@@ -93,6 +93,8 @@ public final class GeoTiffCoordinateTransformationsCodes {
 
     public static final short CT_TransvMercator_SouthOriented = 27;
 
+    public static final short CT_CylindricalEqualArea = 28;
+
     public static final short CT_SouthOrientedGaussConformal = CT_TransvMercator_SouthOriented;
 
     public static final short CT_AlaskaConformal = CT_TransvMercator_Modified_Alaska;
